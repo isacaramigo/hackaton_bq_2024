@@ -16,7 +16,11 @@ Este é um projeto simples de gerenciamento de chamada de alunos, desenvolvido e
 - **Lista de Alunos:** O sistema apresenta uma lista de alunos que podem ser gerenciados pelo professor.
 - **Marcação de Presença:** Cada aluno possui uma checkbox que permite ao professor marcar se ele está presente ou ausente.
 - **Selecionar Todos:** O professor pode selecionar ou desmarcar todos os alunos de uma só vez, facilitando a confirmação de presença.
-- **Geração de PDF:** Ao final da chamada, o sistema gera um PDF que lista os alunos presentes e ausentes, permitindo que o professor tenha um registro impresso.
+- **Geração de PDF com Tabela:** Ao final da chamada, o sistema gera um PDF contendo uma tabela com as colunas:
+  - **RA:** Registro Acadêmico do aluno.
+  - **Nome:** Nome completo do aluno.
+  - **Situação:** Informa se o aluno está "Presente" ou "Ausente".
+  Essa tabela facilita o registro e a consulta posterior da presença dos alunos.
 - **Informações em Tempo Real:** Após a geração do PDF, uma janela de alerta informa a quantidade de alunos presentes e ausentes.
 
 ## Tecnologias Utilizadas
