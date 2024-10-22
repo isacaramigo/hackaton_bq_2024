@@ -5,7 +5,7 @@ Este é um projeto simples de gerenciamento de chamada de alunos, desenvolvido e
 ## Contribuidores
 
  - Isabella Caramigo;
- - [@omaatheus](https://github.com/omaatheus), 
+ - [@omaatheus](https://github.com/omaatheus); 
  - Noemi Benedito;
  - Pedro Kohn;
  - Giovanni Albino;
@@ -31,4 +31,4 @@ Este é um projeto simples de gerenciamento de chamada de alunos, desenvolvido e
 2. Abra o arquivo `index.html` em um navegador web.
 3. Adicione alunos ao vetor no código ou modifique a lista conforme necessário.
 4. Marque a presença dos alunos usando as checkboxes.
-5. Clique no botão "Gerar PDF" para criar um arquivo com a lista de alunos presentes e ausentes.
+5. Clique no botão "Confirmar Presença" para criar um arquivo com a lista de alunos presentes e ausentes.

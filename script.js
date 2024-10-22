@@ -1,10 +1,10 @@
 const alunos = [
-    { nome: 'Letícia Gonçalves', presente: false },
-    { nome: 'Giovanni Albino', presente: false },
-    { nome: 'Isabella Caramigo', presente: false },
-    { nome: 'Matheus Pereira da Silva', presente: false },
-    { nome: 'Pedro Kohn', presente: false },
-    { nome: 'Noemi Benedito', presente: false },
+    { ra: '12345JALMT', nome: 'Letícia Gonçalves', presente: false },
+    { ra: '67891JALMT', nome: 'Giovanni Albino', presente: false },
+    { ra: '17845JALMT', nome: 'Isabella Caramigo', presente: false },
+    { ra: '69891JALMT', nome: 'Matheus Pereira da Silva', presente: false },
+    { ra: '14591JALMT', nome: 'Pedro Kohn', presente: false },
+    { ra: '78421JALMT', nome: 'Noemi Benedito', presente: false },
 ];
 function renderizarAlunos() {
     const lista = document.getElementById('lista-alunos');
@@ -43,36 +43,39 @@ function confirmarPresenca() {
     gerarPDF()
 }
 
-
 function gerarPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
+    // Adiciona título
     doc.setFontSize(20);
     doc.text('Lista de Alunos', 10, 10);
     doc.setFontSize(12);
     
-    //filtra alunos presentes e ausentes
-    const presentes = alunos.filter(aluno => aluno.presente);
-    const ausentes = alunos.filter(aluno => !aluno.presente);
+    // Cabeçalho da tabela
+    doc.text('RA', 10, 20);
+    doc.text('Nome', 50, 20);
+    doc.text('Situação', 110, 20);
 
-    //adiciona alunos presentes
-    doc.text('Presentes:', 10, 20);
-    presentes.forEach((aluno, index) => {
-        doc.text(`${index + 1}. ${aluno.nome}`, 10, 30 + (index * 10));
+    // Adiciona linha horizontal
+    doc.line(10, 22, 200, 22); // Linha na posição do cabeçalho
+
+    // Preenche a tabela com alunos
+    let y = 25; // Posição inicial para a primeira linha
+    alunos.forEach(aluno => {
+        doc.text(aluno.ra, 10, y);
+        doc.text(aluno.nome, 50, y);
+        doc.text(aluno.presente ? 'Presente' : 'Ausente', 110, y);
+        y += 10; // Incrementa a posição para a próxima linha
     });
 
-    //adiciona alunos ausentes, ajustando a posição corretamente
-    const posicaoAusentes = 30 + (presentes.length * 10) + 10; // 10 de espaçamento
-    doc.text('Ausentes:', 10, posicaoAusentes);
-    ausentes.forEach((aluno, index) => {
-        doc.text(`${index + 1}. ${aluno.nome}`, 10, posicaoAusentes + 10 + (index * 10));
-    });
-
-    //salva o PDF
+    // Salva o PDF
     doc.save('lista_de_alunos.pdf');
 
-    alert(`Alunos Presentes: ${presentes.length}\nAlunos Ausentes: ${ausentes.length}`);
+    // Exibe a quantidade de alunos presentes e ausentes
+    const presentes = alunos.filter(aluno => aluno.presente).length;
+    const ausentes = alunos.length - presentes;
+    alert(`Alunos Presentes: ${presentes}\nAlunos Ausentes: ${ausentes}`);
 }
 
 window.onload = renderizarAlunos;
