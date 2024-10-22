@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamada de Alunos</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Chamada de Alunos</h1>
+    <label>
+        <input type="checkbox" id="selecionar-todos" onclick="selecionarTodos(this)">
+        Selecionar Todos
+    </label>
+    <ul id="lista-alunos">
+    </ul>
+    <button onclick="confirmarPresenca()">Confirmar Presença</button>
+</body>
+</html>
