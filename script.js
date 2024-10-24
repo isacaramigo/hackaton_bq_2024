@@ -47,10 +47,17 @@ function gerarPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
+    const dataAtual = new Date();
+    const dataFormatada = dataAtual.toLocaleDateString()
+    const horaFormatada = dataAtual.toLocaleTimeString()
+
+
     //add título
     doc.setFontSize(20);
     doc.text('Lista de Alunos', 10, 10);
     doc.setFontSize(12);
+    doc.text(`Data: ${dataFormatada}`, 167, 5);
+    doc.text(`Horário: ${horaFormatada}`, 167, 10);
     
     //cabeçalho da tabela
     doc.text('RA', 10, 20);
