@@ -9,13 +9,15 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <h1>Chamada de Alunos</h1>
-    <label>
-        <input type="checkbox" id="selecionar-todos" onclick="selecionarTodos(this)">
-        Selecionar Todos
-    </label>
-    <ul id="lista-alunos">
-    </ul>
-    <button onclick="confirmarPresenca()">Confirmar Presença</button>
+    <div class="container">
+        <h1>Chamada de Alunos</h1>
+        <label class="select-all">
+            <input type="checkbox" id="selecionar-todos" onclick="selecionarTodos(this)">
+            Selecionar Todos
+        </label>
+        <ul id="lista-alunos">
+        </ul>
+        <button onclick="confirmarPresenca()">Confirmar Presença</button>
+    </div>
 </body>
 </html>
